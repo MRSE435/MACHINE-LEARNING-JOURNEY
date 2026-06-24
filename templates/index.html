@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symple mode demostrated through flask</title>
+</head>
+<body>
+    <form  method="POST" action="/predict">
+        <input type="text" name="study_hours">
+        <input type="text" name="attendance">
+        <input type="submit" value="submit">
+    </form>
+    {% if prediction %}
+        <h2>Predicted Score: {{ prediction }}</h2>
+    {% endif %}
+
+    {% if graph %}
+        <h2>Actual vs Predicted Graph</h2>
+        <img src="{{ url_for('static', filename=graph) }}" width="600">
+    {% endif %}
+</body>
+</html>
